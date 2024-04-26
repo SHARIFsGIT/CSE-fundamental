@@ -10,13 +10,13 @@ int main()
         scanf("%d", &A[i]);
     }
 
-    int count[5] = {0};
+    int count[100001] = {0};
     for (int i = 0; i < N; i++)
     {
         count[A[i]]++;
     }
 
-    for (int i = 1; i <= 5; i++)
+    for (int i = 1; i <= M; i++)
     {
         printf("%d\n", count[i]);
     }
