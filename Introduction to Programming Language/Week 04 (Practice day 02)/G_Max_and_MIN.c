@@ -9,12 +9,12 @@ int function(int array[], int N)
         {
             max = array[i];
         }
-        else
+        if (array[i] < min)
         {
             min = array[i];
         }
     }
-    printf("%d %d\n", max, min);
+    printf("%d %d\n", min, max);
 
     return 0;
 }
