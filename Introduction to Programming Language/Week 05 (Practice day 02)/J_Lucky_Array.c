@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main()
 {
-    int N, K;
-    scanf("%d %d", &N, &K);
+    int N;
+    scanf("%d", &N);
 
     int array[N];
     for (int i = 0; i < N; i++)
@@ -14,7 +14,7 @@ int main()
     {
         for (int j = i + 1; j < N; j++)
         {
-            if (array[i] < array[j])
+            if (array[j] > array[i])
             {
                 int temp = array[i];
                 array[i] = array[j];
@@ -23,15 +23,17 @@ int main()
         }
     }
 
-    long long int sum = 0;
-    for (int i = 0; i < K; i++)
+    for (int i = 0; i < N; i++)
     {
-        if (array[i] >= 0)
-        {
-            sum += array[i];
-        }
+        /* code */
     }
-    printf("%lld\n", sum);
+    
+
+    if (array[N - 1] % 2 == 1)
+    {
+        printf("Lucky");
+    }
+    
 
     return 0;
 }
