@@ -23,15 +23,22 @@ int main()
         }
     }
 
+    int count = 0;
     for (int i = 0; i < N; i++)
     {
-        /* code */
+        if (array[i] == array[N - 1])
+        {
+            count++;
+        }
     }
     
-
-    if (array[N - 1] % 2 == 1)
+    if (count % 2 == 1)
     {
         printf("Lucky");
+    }
+    else
+    {
+        printf("Unlucky");
     }
     
 
