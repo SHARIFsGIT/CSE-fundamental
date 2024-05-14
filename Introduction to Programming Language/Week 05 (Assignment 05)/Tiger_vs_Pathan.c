@@ -13,7 +13,6 @@ int main()
         scanf("%s", S);
 
         int tiger = 0, pathaan = 0;
-
         for (int i = 0; i < N; i++)
         {
             if (S[i] == 'T')
