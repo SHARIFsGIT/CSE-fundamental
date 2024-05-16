@@ -1,23 +1,24 @@
 #include <stdio.h>
 int main()
 {
-    int T;
-    scanf("%d", &T);
+    int test;
+    scanf("%d", &test);
 
-    for (int i = 0; i < T; i++)
+    for (int i = 0; i < test; i++)
     {
-        long long int M;
-        int A, B, C;
-        scanf("%lld %d %d %d", &M, &A, &B, &C);
+        long long int M, A, B, C;
+
+        scanf("%lld %lld %lld %lld", &M, &A, &B, &C);
 
         long long int product = A * B * C;
-        if (M % product == 0)
+
+        if (A == 0 || B == 0 || C == 0 || M % product != 0)
         {
-            printf("%d\n", M / product);
+            printf("-1\n");
         }
         else
         {
-            printf("-1\n");
+            printf("%lld\n", M / product);
         }
     }
 

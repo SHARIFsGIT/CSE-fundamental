@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 int main()
 {
     int T;
@@ -21,15 +22,15 @@ int main()
             B[i] = A[i];
         }
 
-        for (int i = 0; i < N - 1; i++)
+        for (int i = 0; i < N; i++)
         {
-            for (int j = 0; j < N - i - 1; j++)
+            for (int j = i + 1; j < N; j++)
             {
-                if (B[j] > B[j + 1])
+                if (B[i] > B[j])
                 {
-                    int temp = B[j];
-                    B[j] = B[j + 1];
-                    B[j + 1] = temp;
+                    int temp = B[i];
+                    B[i] = B[j];
+                    B[j] = temp;
                 }
             }
         }
@@ -38,6 +39,10 @@ int main()
         for (int i = 0; i < N; i++)
         {
             C[i] = abs(A[i] - B[i]);
+        }
+
+        for (int i = 0; i < N; i++)
+        {
             printf("%d ", C[i]);
         }
         printf("\n");
