@@ -3,21 +3,25 @@ using namespace std;
 
 int main()
 {
-    string line;
-    while (getline(cin, line))
+    char str[100005];
+
+    while (cin.getline(str, 100005))
     {
-        string result;
-        for (char c = 'a'; c <= 'z'; ++c)
+        sort(str, str + strlen(str));
+
+        for (int i = 0; i < strlen(str); i++)
         {
-            for (char ch : line)
+            if (str[i] == ' ')
             {
-                if (ch == c)
-                {
-                    result += ch;
-                }
+                continue;
+            }
+            else
+            {
+                cout << str[i];
             }
         }
-        cout << result << endl;
+        cout << endl;
     }
+
     return 0;
 }
