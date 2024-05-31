@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void print(stringstream &ss)
+{
+    string word;
+    if (ss >> word)
+    {
+        // cout << word << endl;
+        print(ss);
+        cout << word << endl;
+    }
+}
+
+int main()
+{
+    string str;
+    getline(cin, str);
+
+    stringstream ss(str);
+    // string word;
+    // while (ss >> word)
+    // {
+    //     cout << word << endl;
+    // }
+    print(ss);
+
+    return 0;
+}
