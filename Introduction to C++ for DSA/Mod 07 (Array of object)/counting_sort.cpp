@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    string str;
+    cin >> str;
+
+    int freq[26] = {0};
+    for (char c : str)
+    {
+        freq[c - 'a']++;
+    }
+
+    for (char i = 'a'; i <= 'z'; i++)
+    {
+        for (int j = 0; j < freq[i - 'a']; j++)
+        {
+            cout << i;
+        }
+    }
+
+    return 0;
+}
