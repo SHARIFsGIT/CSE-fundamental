@@ -3,19 +3,18 @@ using namespace std;
 
 int main()
 {
-    char str[100005];
+    int size = 100000 + 5;
+    char str[size];
 
-    while (cin.getline(str, 100005))
+    while (cin.getline(str, size))
     {
-        sort(str, str + strlen(str));
+        int len = strlen(str);
 
-        for (int i = 0; i < strlen(str); i++)
+        sort(str, str + len);
+
+        for (int i = 0; i < len; i++)
         {
-            if (str[i] == ' ')
-            {
-                continue;
-            }
-            else
+            if (str[i] != ' ')
             {
                 cout << str[i];
             }

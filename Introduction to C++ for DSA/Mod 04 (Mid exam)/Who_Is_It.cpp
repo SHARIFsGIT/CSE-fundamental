@@ -5,7 +5,7 @@ class Student
 {
 public:
     int id;
-    string name;
+    char name[100];
     char section;
     double total_marks;
 };
