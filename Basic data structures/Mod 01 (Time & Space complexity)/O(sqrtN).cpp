@@ -18,8 +18,7 @@ int main()
         }
     }
 
-    cout << endl
-         << endl;
+    cout << endl;
 
     for (int i = 1; i * i <= n; i++) // O(sqrt(n))
     {

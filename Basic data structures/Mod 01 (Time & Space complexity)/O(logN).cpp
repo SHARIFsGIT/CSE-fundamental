@@ -13,7 +13,7 @@ int main()
         n /= 10;
     }
 
-    for (int i = 0; i < n; i * 2) // O(log N)
+    for (int i = 0; i < n; i *= 2) // O(log N)
     {
         cout << i << endl;
     }
