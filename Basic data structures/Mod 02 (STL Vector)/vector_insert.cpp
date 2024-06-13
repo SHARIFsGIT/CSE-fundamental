@@ -11,8 +11,22 @@ int main()
         cout << value << " ";
     }
     cout << endl;
-    
+
+    v.insert(v.begin() + 3, 3, 30);
+    for (int value : v)
+    {
+        cout << value << " ";
+    }
+    cout << endl;
+
     v.insert(v.begin() + 3, v2.begin(), v2.end());
+    for (int value : v)
+    {
+        cout << value << " ";
+    }
+    cout << endl;
+
+    v.insert(v.begin(), v2.begin() + 2, v2.end() - 1);
     for (int value : v)
     {
         cout << value << " ";
