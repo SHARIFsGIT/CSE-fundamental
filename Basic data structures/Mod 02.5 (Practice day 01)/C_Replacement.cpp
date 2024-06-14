@@ -7,9 +7,6 @@ int main()
     cin >> n;
 
     vector<int> A(n);
-    vector<int> B(n);
-    vector<int> C;
-
     for (int i = 0; i < n; i++)
     {
         cin >> A[i];
@@ -17,23 +14,21 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        cin >> B[i];
+        if (A[i] > 0)
+        {
+            A[i] = 1;
+        }
+        else if (A[i] < 0)
+        {
+            A[i] = 2;
+        }
     }
 
-    for (int i : B)
+    for (int i = 0; i < n; i++)
     {
-        C.push_back(i);
+        cout << A[i] << " ";
     }
-
-    for (int i : A)
-    {
-        C.push_back(i);
-    }
-
-    for (int element : C)
-    {
-        cout << element << " ";
-    }
+    cout << endl;
 
     return 0;
 }
