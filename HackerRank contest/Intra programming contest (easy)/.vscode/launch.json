@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "p:/Programming/Spring 2024/Introduction to C++ for DSA/Intra programming contest (easy)",
-      "program": "p:/Programming/Spring 2024/Introduction to C++ for DSA/Intra programming contest (easy)/build/Debug/outDebug",
+      "cwd": "p:/Programming/Spring 2024/HackerRank contest/Intra programming contest (easy)",
+      "program": "p:/Programming/Spring 2024/HackerRank contest/Intra programming contest (easy)/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
