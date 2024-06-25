@@ -110,13 +110,14 @@ int main()
     head->next = a;
     a->next = b;
     b->next = c;
-    c->next = d;
+    c->next = NULL;
     d->next = e;
+    e->next = NULL;
 
     Node *temp = head;
     while (temp != NULL)
     {
-        cout << temp->value << endl;
+        cout << temp->value << " ";
         temp = temp->next;
     }
 
@@ -125,11 +126,15 @@ int main()
     int sum = 0;
     temp = head;
 
-    while (temp->next != Node(3))
+    while (temp->next != NULL)
     {
-        cout << temp->value << endl;
-        temp = temp->next;
+        sum += temp-> value;
+        temp = temp -> next;
     }
+
+    sum -= temp -> value;
+
+    cout << "Sum of 1020: " << sum << endl;
 
     return 0;
 }
