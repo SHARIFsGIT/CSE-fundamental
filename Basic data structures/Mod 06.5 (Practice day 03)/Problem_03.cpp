@@ -22,6 +22,7 @@ void insert_at_tail(Node *&head, int value)
         head = newNode;
         return;
     }
+
     Node *temp = head;
     while (temp->next != NULL)
     {
@@ -30,21 +31,42 @@ void insert_at_tail(Node *&head, int value)
     temp->next = newNode;
 }
 
-bool has_duplicate(Node *head)
+int get_size(Node *head)
 {
-    int freq[101] = {0};
-
+    int size = 0;
     Node *temp = head;
+
     while (temp != NULL)
     {
-        freq[temp->value]++;
-        if (freq[temp->value] > 1)
-        {
-            return true;
-        }
+        size++;
         temp = temp->next;
     }
-    return false;
+    return size;
+}
+
+void print_middle(Node *head, int size)
+{
+    if (head == NULL)
+    {
+        return;
+    }
+
+    Node *temp = head;
+
+    int mid1 = (size - 1) / 2;
+    int mid2 = size / 2;
+
+    for (int i = 0; i < mid1; i++)
+    {
+        temp = temp->next;
+    }
+
+    cout << temp->value;
+
+    if (mid1 != mid2)
+    {
+        cout << " " << temp->next->value;
+    }
 }
 
 int main()
@@ -66,8 +88,9 @@ int main()
             break;
         }
     }
+    int size = get_size(head);
 
-    cout << (has_duplicate(head) ? "YES" : "NO") << endl;
+    print_middle(head, size);
 
     return 0;
 }

@@ -30,21 +30,38 @@ void insert_at_tail(Node *&head, int value)
     temp->next = newNode;
 }
 
-bool has_duplicate(Node *head)
+bool is_sorted(Node *head)
 {
-    int freq[101] = {0};
+    if (head == NULL || head->next == NULL)
+    {
+        return true;
+    }
 
     Node *temp = head;
-    while (temp != NULL)
+    while (temp->next != NULL)
     {
-        freq[temp->value]++;
-        if (freq[temp->value] > 1)
+        if (temp->value > temp->next->value)
         {
-            return true;
+            return false;
         }
         temp = temp->next;
     }
-    return false;
+    return true;
+}
+
+void print_list(Node *head)
+{
+    Node *temp = head;
+    while (temp != NULL)
+    {
+        cout << temp->value;
+        if (temp->next != NULL)
+        {
+            cout << " ";
+        }
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main()
@@ -52,7 +69,6 @@ int main()
     Node *head = NULL;
 
     int value;
-
     while (true)
     {
         cin >> value;
@@ -67,7 +83,7 @@ int main()
         }
     }
 
-    cout << (has_duplicate(head) ? "YES" : "NO") << endl;
+    cout << (is_sorted(head) ? "YES" : "NO") << endl;
 
     return 0;
 }
