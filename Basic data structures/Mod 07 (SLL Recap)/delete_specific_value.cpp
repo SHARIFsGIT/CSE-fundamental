@@ -30,7 +30,9 @@ void delete_value(Node *&head, int x)
 {
     if (head->val == x)
     {
+        Node *deleteNode = head;
         head = head->next;
+        delete deleteNode;
         return;
     }
 
