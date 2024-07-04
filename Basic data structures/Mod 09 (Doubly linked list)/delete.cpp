@@ -16,11 +16,15 @@ public:
     }
 };
 
-void delete_head(Node *&head)
+void delete_head(Node *&head, Node *&tail)
 {
     Node *deleteNode = head;
     head = head->next;
     delete deleteNode;
+    if (head == NULL)
+    {
+        tail = NULL;
+    }
     head->previous = NULL;
 }
 
@@ -38,11 +42,17 @@ void delete_at_position(Node *head, int position)
     delete deleteNode;
 }
 
-void delete_tail(Node *&tail)
+void delete_tail(Node *&head, Node *&tail)
 {
     Node *deleteNode = tail;
     tail = tail->previous;
     delete deleteNode;
+    if (tail == NULL)
+    {
+        head = NULL;
+        return;
+    }
+
     tail->next = NULL;
 }
 
@@ -105,11 +115,11 @@ int main()
     }
     else if (position == 0)
     {
-        delete_head(head);
+        delete_head(head, tail);
     }
     else if (position == size(head) - 1)
     {
-        delete_tail(tail);
+        delete_tail(head, tail);
     }
     else
     {
