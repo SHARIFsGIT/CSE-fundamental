@@ -1,0 +1,1 @@
+{"name":"Local: First Negative In Every Window","url":"p:\\Programming\\Spring 2024\\XPSC\\First Negative In Every Window.cpp","tests":[{"id":1721580074204,"input":"7\n1 5 4 2 9 9 9\n3","output":"5 5 9 9 9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\First Negative In Every Window.cpp","group":"local","local":true}

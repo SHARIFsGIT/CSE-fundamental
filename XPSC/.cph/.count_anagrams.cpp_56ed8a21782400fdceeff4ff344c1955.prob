@@ -1,0 +1,1 @@
+{"name":"Local: count_anagrams","url":"p:\\Programming\\Spring 2024\\XPSC\\count_anagrams.cpp","tests":[{"id":1721591569515,"input":"forxxorfxdofr\nfor","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\count_anagrams.cpp","group":"local","local":true}

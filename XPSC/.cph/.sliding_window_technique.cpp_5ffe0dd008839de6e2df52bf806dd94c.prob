@@ -1,0 +1,1 @@
+{"name":"Local: sliding_window_technique","url":"p:\\Programming\\Spring 2024\\XPSC\\sliding_window_technique.cpp","tests":[{"id":1721581735418,"input":"6\n1 2 8 5 4 3\n3","output":"17"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\sliding_window_technique.cpp","group":"local","local":true}

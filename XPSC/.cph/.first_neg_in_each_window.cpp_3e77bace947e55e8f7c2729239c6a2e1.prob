@@ -1,0 +1,1 @@
+{"name":"Local: first_neg_in_each_window","url":"p:\\Programming\\Spring 2024\\XPSC\\first_neg_in_each_window.cpp","tests":[{"id":1721582176482,"input":"5\n-8 2 3 -6 10\n2","output":"-8 0 -6 -6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\first_neg_in_each_window.cpp","group":"local","local":true}
