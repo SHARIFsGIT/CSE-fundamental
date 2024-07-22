@@ -17,6 +17,7 @@ int main()
 
     int maximum = INT_MIN;
     int i = 0, j = 0, shift = 0;
+    
 
     while (j < n)
     {
