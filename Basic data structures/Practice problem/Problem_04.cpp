@@ -17,7 +17,7 @@ int main()
     int k;
     cin >> k;
 
-    for (int i = 0; i < k - 1; i++)
+    for (int i = 0; i < n - k; i++)
     {
         st.pop();
     }
