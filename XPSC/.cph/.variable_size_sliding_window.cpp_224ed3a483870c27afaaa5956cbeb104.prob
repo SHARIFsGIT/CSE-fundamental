@@ -1,0 +1,1 @@
+{"name":"Local: variable_size_sliding_window","url":"p:\\Programming\\Spring 2024\\XPSC\\variable_size_sliding_window.cpp","tests":[{"id":1722010900547,"input":"1 2 3\n3","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\variable_size_sliding_window.cpp","group":"local","local":true}
