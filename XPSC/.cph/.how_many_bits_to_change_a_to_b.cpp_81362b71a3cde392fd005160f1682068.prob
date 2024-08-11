@@ -1,0 +1,1 @@
+{"name":"Local: how_many_bits_to_change_a_to_b","url":"p:\\Programming\\Spring 2024\\XPSC\\how_many_bits_to_change_a_to_b.cpp","tests":[{"id":1723413268291,"input":"10 15","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\how_many_bits_to_change_a_to_b.cpp","group":"local","local":true}
