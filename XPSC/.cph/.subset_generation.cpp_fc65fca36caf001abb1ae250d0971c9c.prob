@@ -1,0 +1,1 @@
+{"name":"Local: subset_generation","url":"p:\\Programming\\Spring 2024\\XPSC\\subset_generation.cpp","tests":[{"id":1723751340273,"input":"3\n1 3 5","output":"\n1\n3\n1 3\n5\n1 5\n3 5\n1 3 5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"p:\\Programming\\Spring 2024\\XPSC\\subset_generation.cpp","group":"local","local":true}
