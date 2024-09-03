@@ -126,14 +126,21 @@ int main()
     heap.pop(0);
 
     // vector<int> v = {2, 3, 4, 8, 11, 10, 9, 6};
-    vector<int> v = {1, 2, 3, 4, 5};
+    vector<int> v = {5, 4, 2, 1, 3};
     heap.buid_from_array(v);
 
-    vector<int> reslut = heap_sort(v);
+    vector<int> result;
 
-    for (int i = 0; i < reslut.size(); i++)
+    for (int i = 0; i < v.size(); i++)
     {
-        cout << reslut[i] << " ";
+        result.push_back(heap.extract_max());
+    }
+
+    reverse(result.begin(), result.end());
+
+    for (int i = 0; i < result.size(); i++)
+    {
+        cout << result[i] << " ";
     }
 
     // heap.print();
