@@ -3,6 +3,7 @@
 using namespace std;
 
 // Time: O(n) | Space: O(1)
+
 bool isValidSubsequence(vector<int> array, vector<int> sequence)
 {
     int seq_index = 0;
