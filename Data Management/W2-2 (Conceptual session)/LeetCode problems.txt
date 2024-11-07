@@ -1,0 +1,5 @@
+1. https://leetcode.com/problems/game-play-analysis-i/description/
+2. https://leetcode.com/problems/customers-who-bought-all-products/description/
+3. https://leetcode.com/problems/employee-bonus/description/
+4. https://leetcode.com/problems/tree-node/description/
+5. https://leetcode.com/problems/department-highest-salary/description/
