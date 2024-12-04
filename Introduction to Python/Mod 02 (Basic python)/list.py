@@ -1,0 +1,10 @@
+numbers = [10, 20, 30, 40, 50, 60, 70, 80]
+print(numbers[3], numbers[-3])
+print(numbers[3 : 5])
+print(numbers[3 : 7 : 2])
+print(numbers[3 : 7 : -2])
+print(numbers[7 : 3 : -2])
+print(numbers[3 : ])
+print(numbers[ : 7])
+print(numbers[ : : ])
+print(numbers[ : : -1])
