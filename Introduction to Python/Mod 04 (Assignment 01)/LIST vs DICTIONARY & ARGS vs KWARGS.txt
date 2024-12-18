@@ -1,0 +1,46 @@
+                        List
+                        ----
+1. Used to store collections of data that is mutable
+2. Have indexing such as array indexing
+3. Allow duplicate elements
+4. my_list = [1, 2, 3, 4, 4]
+
+                    Dictionary
+                       -----
+1. Collection of key and values combines in pairs
+2. Accessed by keys instead of indexing
+3. Keys are unique but values may be duplicated
+4. my_dict = {
+                "Virat Kohli": 85,
+                "Rohit Sharma": 120,
+                "KL Rahul": 45
+            }
+
+                      *args
+                      -----
+1. Allows to pass variable number of non keyword arguments to the function
+2. Arguments are stored as a tuple
+3. def all_sum(num1, num2, *numbers):
+    print(numbers)
+    sum = 0
+    for num in numbers:
+        print(num)
+        sum += num
+    return sum
+total_num = all_sum(45, 56, 30, 40)
+print('All sum:', total_num)
+
+                      **kwargs
+                        -----
+1. Allows to pass variable length of keyword arguments to the function
+2. Arguments are stored as a dictionary
+3. def famous_name(first, last, **addition):
+    name = f'{first} {last}'
+    print(addition)
+    print(addition['author'])
+    for key, value in addition.items():
+        print(f'{key}: {value}')
+    return name
+name = famous_name(first = 'sadia', last = 'afrin', title = 'student', author = 'trina')
+print(name)
+
