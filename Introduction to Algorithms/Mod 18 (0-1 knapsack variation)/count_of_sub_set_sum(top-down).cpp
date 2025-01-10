@@ -3,18 +3,17 @@ using namespace std;
 
 int dp[1005][1005];
 
-// complexity: O(n*sum)
-bool subset_sum(int n, int arr[], int sum)
+int subset_sum(int n, int arr[], int sum)
 {
     if (n == 0)
     {
         if (sum == 0)
         {
-            return true;
+            return 1;
         }
         else
         {
-            return false;
+            return 0;
         }
     }
 
@@ -25,10 +24,10 @@ bool subset_sum(int n, int arr[], int sum)
 
     if (arr[n - 1] <= sum)
     {
-        bool opt1 = subset_sum(n - 1, arr, sum - arr[n - 1]);
-        bool opt2 = subset_sum(n - 1, arr, sum);
+        int opt1 = subset_sum(n - 1, arr, sum - arr[n - 1]);
+        int opt2 = subset_sum(n - 1, arr, sum);
 
-        return dp[n][sum] = opt1 || opt2;
+        return dp[n][sum] = opt1 + opt2;
     }
     else
     {
@@ -51,22 +50,15 @@ int main()
     int sum;
     cin >> sum;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i <= n; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j <= sum; j++)
         {
             dp[i][j] = -1;
         }
     }
 
-    if (subset_sum(n, array, sum))
-    {
-        cout << "YES" << endl;
-    }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    cout << subset_sum(n, array, sum) << endl;
 
     return 0;
 }
