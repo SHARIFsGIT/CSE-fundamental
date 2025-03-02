@@ -1,34 +1,52 @@
 # -------------------- Main Application --------------------
 from food_item import FoodItem
-from menu import Menu
-from order import Order
 from restaurent import Restaurant
 from user import Admin, Customer, Employee
 
 def main():
     # Initialize restaurant
-    restaurant = Restaurant("Djini's Bakehouse")
+    restaurant = Restaurant("Fast Food Restaurant")
     
-    # Admin
-    admin = Admin("Safira", "+62 857-7784-9550", "s.husna@gmail.com", "Bekasi")
+    # Add sample food items
+    restaurant.add_food_item(FoodItem("Biriyani", 250.00, 50))
+    restaurant.add_food_item(FoodItem("Paratha", 30.00, 100))
+    restaurant.add_food_item(FoodItem("Shingara", 10.00, 200))
+    restaurant.add_food_item(FoodItem("Borhani", 40.00, 60))
+    restaurant.add_food_item(FoodItem("Beef Curry", 350.00, 30))
+
+    print()
+
+    # Add sample admin
+    admin = Admin("Rahim Manager", "01700-123456", "rahim.manager@restaurant.com", "House-12, Road-5, Dhanmondi, Dhaka")
+
+    # Add sample employees
+    chef = Employee("Hasan", "01811-987654", "hasan.chef@restaurant.com", "Mirpur-10, Dhaka", 30, "Chef", 50000)
+    server = Employee("Sumi", "01922-456789", "sumi.server@restaurant.com", "Gulshan-2, Dhaka", 24, "Server", 30000)
+    
+    admin.add_employee(restaurant, chef)
+    admin.add_employee(restaurant, server)
     
     while True:
         print("\n" + "="*50)
         print(f"Welcome to {restaurant.name}")
         print("="*50)
         print("1. Admin Login")
-        print("2. Customer Access")
-        print("3. Exit")
+        print("2. Employee Login")
+        print("3. Customer Access")
+        print("4. Exit")
         print("-"*50)
         
         try:
             choice = int(input("Enter your choice: "))
+            print()
             
             if choice == 1:
                 admin_menu(restaurant, admin)
             elif choice == 2:
-                customer_menu(restaurant)
+                employee_login(restaurant)
             elif choice == 3:
+                customer_menu(restaurant)
+            elif choice == 4:
                 print("Thank you for using our system. Goodbye!")
                 break
             else:
@@ -44,7 +62,7 @@ def main():
 
 def admin_menu(restaurant, admin):
     """Admin menu for managing the restaurant."""
-    print("\n" + "="*50)
+    print("="*50)
     print("Admin Dashboard")
     print("="*50)
     
@@ -57,11 +75,13 @@ def admin_menu(restaurant, admin):
         print("6. Add Employee")
         print("7. Remove Employee")
         print("8. View Revenue")
-        print("9. Return to Main Menu")
+        print("9. View All Orders")
+        print("10. Return to Main Menu")
         print("-"*50)
         
         try:
             choice = int(input("Enter your choice: "))
+            print()
             
             if choice == 1:
                 restaurant.display_menu()
@@ -123,6 +143,20 @@ def admin_menu(restaurant, admin):
                 admin.view_revenue(restaurant)
             
             elif choice == 9:
+                # View all orders
+                if not restaurant.orders:
+                    print("No orders to display.")
+                else:
+                    print("\n" + "="*70)
+                    print("All Orders")
+                    print("-"*70)
+                    print(f"{'Order ID':<25}{'Status':<12}{'Items':<8}{'Total':<10}{'Time':<20}")
+                    print("-"*70)
+                    for order in restaurant.orders:
+                        print(f"{order.order_id:<25}{order.status:<12}{order.item_count():<8}${order.calculate_total_price():<9.2f}{str(order.order_time)[:19]:<20}")
+                    print("="*70)
+            
+            elif choice == 10:
                 print("Returning to main menu...")
                 break
             
@@ -137,7 +171,7 @@ def admin_menu(restaurant, admin):
 
 def customer_menu(restaurant):
     """Customer menu for ordering food."""
-    print("\n" + "="*50)
+    print("="*50)
     print("Customer Interface")
     print("="*50)
     
@@ -163,6 +197,7 @@ def customer_menu(restaurant):
         
         try:
             choice = int(input("Enter your choice: "))
+            print()
             
             if choice == 1:
                 customer.view_menu(restaurant)
@@ -228,6 +263,103 @@ def customer_menu(restaurant):
         except Exception as e:
             print(f"An error occurred: {e}")
 
+
+def employee_login(restaurant):
+    """Employee login and order management interface."""
+    print("="*50)
+    print("Employee Login")
+    print("="*50)
+    
+    name = input("Enter your name: ")
+    
+    # Find employee by name
+    employee = None
+    for emp in restaurant.employees:
+        if emp.name.lower() == name.lower():
+            employee = emp
+            break
+    
+    if not employee:
+        print(f"No employee named {name} found.")
+        return
+    
+    print(f"\nWelcome, {employee.name}!")
+    employee_menu(restaurant, employee)
+
+def employee_menu(restaurant, employee):
+    """Employee order management menu."""
+    print("\n" + "="*50)
+    print(f"Employee Dashboard - {employee.name} ({employee.job_title})")
+    print("="*50)
+    
+    while True:
+        print("\n1. View Pending Orders")
+        print("2. Mark Order as Ready")
+        print("3. Mark Order as Delivered")
+        print("4. View All Orders")
+        print("5. Return to Main Menu")
+        print("-"*50)
+        
+        try:
+            choice = int(input("Enter your choice: "))
+            print()
+            
+            if choice == 1:
+                # View pending orders (not delivered)
+                print("\n" + "="*70)
+                print("Pending Orders")
+                print("-"*70)
+                
+                has_pending = False
+                for order in restaurant.orders:
+                    if order.status != "Delivered":
+                        has_pending = True
+                        print(f"Order ID: {order.order_id}")
+                        print(f"Status: {order.status}")
+                        print(f"Items: {order.item_count()}")
+                        print(f"Total: ${order.calculate_total_price():.2f}")
+                        print(f"Time: {str(order.order_time)[:19]}")
+                        print("-"*50)
+                
+                if not has_pending:
+                    print("No pending orders.")
+                print("="*70)
+            
+            elif choice == 2:
+                # Mark order as ready
+                order_id = input("Enter order ID to mark as ready: ")
+                employee.mark_order_ready(restaurant, order_id)
+            
+            elif choice == 3:
+                # Mark order as delivered
+                order_id = input("Enter order ID to mark as delivered: ")
+                employee.mark_order_delivered(restaurant, order_id)
+            
+            elif choice == 4:
+                # View all orders
+                if not restaurant.orders:
+                    print("No orders to display.")
+                else:
+                    print("\n" + "="*70)
+                    print("All Orders")
+                    print("-"*70)
+                    print(f"{'Order ID':<25}{'Status':<12}{'Items':<8}{'Total':<10}{'Time':<20}")
+                    print("-"*70)
+                    for order in restaurant.orders:
+                        print(f"{order.order_id:<25}{order.status:<12}{order.item_count():<8}${order.calculate_total_price():<9.2f}{str(order.order_time)[:19]:<20}")
+                    print("="*70)
+            
+            elif choice == 5:
+                print("Returning to main menu...")
+                break
+            
+            else:
+                print("Invalid choice. Please try again.")
+                
+        except ValueError:
+            print("Please enter a valid number.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     main()

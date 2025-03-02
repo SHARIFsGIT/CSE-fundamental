@@ -122,3 +122,18 @@ class Restaurant:
     def get_total_revenue(self):
         """Get the total revenue of the restaurant."""
         return self.revenue
+        
+    def get_pending_orders(self):
+        """Get all orders that are not delivered."""
+        return [order for order in self.orders if order.status != "Delivered"]
+        
+    def get_orders_by_status(self, status):
+        """Get all orders with a specific status."""
+        return [order for order in self.orders if order.status == status]
+        
+    def find_order_by_id(self, order_id):
+        """Find an order by its ID."""
+        for order in self.orders:
+            if order.order_id == order_id:
+                return order
+        return None
