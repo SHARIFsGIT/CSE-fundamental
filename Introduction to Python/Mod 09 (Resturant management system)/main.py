@@ -39,6 +39,8 @@ def init_data_directory():
     os.makedirs("data/orders", exist_ok=True)
     os.makedirs("data/reports", exist_ok=True)
     os.makedirs("data/logs", exist_ok=True)
+    # The `exist_ok=True` parameter ensures that no error occurs if the directory already exists
+
 
 
 def initialize_menu(restaurant):
@@ -220,18 +222,18 @@ def admin_menu(restaurant, admin):
                 restaurant_settings(restaurant, admin)
             elif choice == 5:
                 print("Returning to main menu...")
-                time.sleep(1)
+                time.sleep(3)
                 break
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def menu_management(restaurant, admin):
@@ -270,7 +272,7 @@ def menu_management(restaurant, admin):
                 # View menu by category
                 categories = restaurant.menu.get_item_categories()
                 
-                print("\nAvailable Categories:")
+                print("Available Categories:")
                 for i, category in enumerate(categories, 1):
                     print(f"{i}. {category}")
                     
@@ -286,7 +288,7 @@ def menu_management(restaurant, admin):
                 # Check if item already exists
                 if restaurant.find_food_item(name):
                     print(f"{name} already exists in the menu.")
-                    time.sleep(1)
+                    time.sleep(3)
                     continue
                 
                 try:
@@ -324,7 +326,7 @@ def menu_management(restaurant, admin):
                     
                 except ValueError:
                     print("Invalid input. Please enter valid numbers.")
-                    time.sleep(1)
+                    time.sleep(3)
             
             elif choice == 4:
                 # Remove menu item
@@ -391,7 +393,7 @@ def menu_management(restaurant, admin):
                     input("\nPress Enter to continue...")
                 else:
                     print(f"{name} not found in menu.")
-                    time.sleep(1)
+                    time.sleep(3)
             
             elif choice == 6:
                 # Search menu items
@@ -400,12 +402,19 @@ def menu_management(restaurant, admin):
                 
                 if found_items:
                     print(f"\nFound {len(found_items)} items matching '{keyword}':")
-                    print("-"*60)
+                    print()
+                    
+                    print("=" * 60)
+                    print(f"{'Item Name':<20} {'Price':^10} {'Category':<20}")
+                    print("-" * 60)
+
                     for item in found_items:
-                        print(f"{item.name} - ${item.price:.2f} - {item.category}")
-                        print(f"  Description: {item.description}")
-                        print(f"  Ingredients: {', '.join(item.ingredients)}")
+                        print(f"{item.name:<20} {item.price:^10.2f} {item.category:<20}")
                         print()
+                        print(f"Description: {item.description}")
+                        print(f"Ingredients: {', '.join(item.ingredients)}")
+                        print("=" * 60, "\n")
+                        
                 else:
                     print(f"No items found matching '{keyword}'.")
                 
@@ -413,19 +422,19 @@ def menu_management(restaurant, admin):
             
             elif choice == 7:
                 print("Returning to admin dashboard...")
-                time.sleep(1)
+                time.sleep(3)
                 break
                 
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def employee_management(restaurant, admin):
@@ -475,7 +484,7 @@ def employee_management(restaurant, admin):
                     input("\nPress Enter to continue...")
                 except ValueError:
                     print("Invalid input. Please enter valid numbers for age and salary.")
-                    time.sleep(1)
+                    time.sleep(3)
             
             elif choice == 3:
                 # Remove employee
@@ -532,19 +541,19 @@ def employee_management(restaurant, admin):
             
             elif choice == 5:
                 print("Returning to admin dashboard...")
-                time.sleep(1)
+                time.sleep(3)
                 break
                 
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def sales_reports(restaurant, admin):
@@ -655,19 +664,19 @@ def sales_reports(restaurant, admin):
             
             elif choice == 6:
                 print("Returning to admin dashboard...")
-                time.sleep(1)
+                time.sleep(3)
                 break
                 
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def restaurant_settings(restaurant, admin):
@@ -702,7 +711,7 @@ def restaurant_settings(restaurant, admin):
                 print(f"Address: {restaurant.address}")
                 print(f"Phone: {restaurant.phone}")
                 
-                print("\nLeave fields blank to keep current values.")
+                print("\nLeave fields blank to keep current values.\n")
                 new_name = input("New name: ")
                 new_address = input("New address: ")
                 new_phone = input("New phone: ")
@@ -725,7 +734,7 @@ def restaurant_settings(restaurant, admin):
                 # Update opening hours
                 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
                 
-                print("\nCurrent Opening Hours:")
+                print("Current Opening Hours:")
                 for day in days:
                     hours = restaurant.opening_hours[day]
                     print(f"{day}: {hours['open']} - {hours['close']}")
@@ -747,19 +756,19 @@ def restaurant_settings(restaurant, admin):
             
             elif choice == 4:
                 print("Returning to admin dashboard...")
-                time.sleep(1)
+                time.sleep(3)
                 break
                 
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def employee_login(restaurant):
@@ -782,12 +791,12 @@ def employee_login(restaurant):
     
     if not employee:
         print(f"No employee named {name} found.")
-        time.sleep(1)
+        time.sleep(3)
         return
     
     print(f"\nWelcome, {employee.name}!")
     employee.record_login()  # Record the login time
-    time.sleep(1)
+    time.sleep(3)
     
     employee_menu(restaurant, employee)
 
@@ -867,19 +876,19 @@ def employee_menu(restaurant, employee):
             
             elif choice == 7:
                 print("Returning to main menu...")
-                time.sleep(1)
+                time.sleep(3)
                 break
             
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def customer_menu(restaurant):
@@ -904,7 +913,7 @@ def customer_menu(restaurant):
         
         enter_anyway = input("\nDo you want to continue anyway? (y/n): ").lower()
         if enter_anyway != 'y':
-            time.sleep(1)
+            time.sleep(3)
             return
     
     # Get customer details
@@ -1113,19 +1122,19 @@ def customer_menu(restaurant):
             
             elif choice == 11:
                 print("Returning to main menu...")
-                time.sleep(1)
+                time.sleep(3)
                 break
             
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def manage_tables(restaurant):
@@ -1212,14 +1221,14 @@ def manage_tables(restaurant):
                 
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
                 
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 def main():
@@ -1233,9 +1242,9 @@ def main():
     
     # Initialize restaurant (create an instance of the Restaurant class)
     restaurant = Restaurant(
-        name="Delicious Bites Restaurant", 
-        address="123 Food Street, Foodville, FD 12345",
-        phone="(555) 123-4567"
+        name="Djini's Bakehouse", 
+        address="Anyelir 2 st AB 15 A Kemang Pratama 2 Bekasi",
+        phone="+62-838-555-022"
     )
     
     # Initialize data directory
@@ -1251,10 +1260,10 @@ def main():
     
     # Add sample admin (create an instance of Admin)
     admin = Admin(
-        name="Rahim Manager", 
-        phone="01700-123456", 
-        email="rahim.manager@restaurant.com", 
-        address="House-12, Road-5, Dhanmondi, Dhaka"
+        name="Safira ajrina husna", 
+        phone="+62-838-555-022", 
+        email="s.husna@restaurant.com", 
+        address="Anyelir 2 st AB 15 A Kemang Pratama 2 Bekasi"
     )
 
     # Add sample employees (create instances of Employee)
@@ -1293,7 +1302,7 @@ def main():
     admin.add_employee(restaurant, cashier)
     
     print("Restaurant system initialized successfully!")
-    time.sleep(1)
+    time.sleep(3)
     
     # Main program loop
     while True:
@@ -1326,16 +1335,16 @@ def main():
                 break
             else:
                 print("Invalid choice. Please try again.")
-                time.sleep(1)
+                time.sleep(3)
         except ValueError:
             print("Please enter a valid number.")
-            time.sleep(1)
+            time.sleep(3)
         except KeyboardInterrupt:
             print("\nProgram terminated by user.")
             break
         except Exception as e:
             print(f"An error occurred: {e}")
-            time.sleep(2)
+            time.sleep(3)
 
 
 if __name__ == "__main__":
