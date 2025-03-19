@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "admin",
+        "password": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
+        "email": "",
+        "role": "admin",
+        "join_date": "2025-03-19T14:23:29.969067",
+        "borrowed_book_ids": [],
+        "return_history_ids": []
+    },
+    {
+        "id": 2,
+        "name": "Sharif",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "email": "",
+        "role": "user",
+        "join_date": "2025-03-19T14:24:01.394295",
+        "borrowed_book_ids": [],
+        "return_history_ids": []
+    },
+    {
+        "id": 4,
+        "name": "Sharif",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "email": "",
+        "role": "user",
+        "join_date": "2025-03-19T15:02:24.726142",
+        "borrowed_book_ids": [
+            105
+        ],
+        "return_history_ids": []
+    }
+]

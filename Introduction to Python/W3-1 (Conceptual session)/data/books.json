@@ -1,0 +1,83 @@
+[
+    {
+        "id": 102,
+        "name": "Java Essentials",
+        "quantity": 0,
+        "author": "Alice Johnson",
+        "category": "Programming",
+        "isbn": "9789876543210",
+        "date_added": "2025-03-19T14:23:29.976564"
+    },
+    {
+        "id": 103,
+        "name": "Data Structures and Algorithms",
+        "quantity": 4,
+        "author": "Bob Davis",
+        "category": "Computer Science",
+        "isbn": "9780123456789",
+        "date_added": "2025-03-19T14:23:29.977567"
+    },
+    {
+        "id": 104,
+        "name": "Web Development Basics",
+        "quantity": 2,
+        "author": "Sarah Wilson",
+        "category": "Web Development",
+        "isbn": "9785432167890",
+        "date_added": "2025-03-19T14:23:29.978563"
+    },
+    {
+        "id": 105,
+        "name": "Introduction to Database Systems",
+        "quantity": 2,
+        "author": "Michael Brown",
+        "category": "Database",
+        "isbn": "9789874561230",
+        "date_added": "2025-03-19T14:23:29.979562"
+    },
+    {
+        "id": 106,
+        "name": "Machine Learning Fundamentals",
+        "quantity": 2,
+        "author": "Emily Taylor",
+        "category": "Data Science",
+        "isbn": "9783216549870",
+        "date_added": "2025-03-19T14:23:29.980562"
+    },
+    {
+        "id": 107,
+        "name": "The Art of Fiction",
+        "quantity": 3,
+        "author": "David Miller",
+        "category": "Literature",
+        "isbn": "9786549873210",
+        "date_added": "2025-03-19T14:23:29.981643"
+    },
+    {
+        "id": 108,
+        "name": "History of Ancient Civilizations",
+        "quantity": 1,
+        "author": "James Wilson",
+        "category": "History",
+        "isbn": "9784567891230",
+        "date_added": "2025-03-19T14:23:29.982649"
+    },
+    {
+        "id": 109,
+        "name": "Modern Physics",
+        "quantity": 2,
+        "author": "Robert Johnson",
+        "category": "Science",
+        "isbn": "9781597534682",
+        "date_added": "2025-03-19T14:23:29.983652"
+    },
+    {
+        "id": 110,
+        "name": "Financial Management",
+        "quantity": 3,
+        "author": "Patricia Lee",
+        "category": "Business",
+        "isbn": "9789517534682",
+        "date_added": "2025-03-19T14:23:29.983652"
+    }
+]
