@@ -17,6 +17,22 @@ from services.auth_service import AuthService
 from services.product_service import ProductService
 from services.order_service import OrderService
 from models.user import Customer, Seller
+import platform
+import subprocess
+
+
+def clear_console():
+    """
+    Clear the console screen in a more robust and platform-independent way.
+    This implementation avoids potential security issues with os.system().
+    """
+    if platform.system() == "Windows":
+        # For Windows, use the cls command with subprocess for better security
+        subprocess.run(["cls"], shell=True, check=False)
+    else:
+        # For Unix/Linux/MacOS
+        # Use ANSI escape sequence which works on most terminals
+        print("\033[H\033[J", end="")
 
 
 class EShoppingApp:
@@ -36,6 +52,7 @@ class EShoppingApp:
     
     def start(self):
         """Start the application and show the main menu."""
+        clear_console()
         print("\n===== Welcome to E-Shopping App =====\n")
         self._show_main_menu()
     
@@ -50,6 +67,8 @@ class EShoppingApp:
             print("5. Exit")
             
             choice = input("\nEnter your choice (1-5): ")
+            
+            clear_console()
             
             if choice == "1":
                 self._register_customer()
@@ -77,6 +96,7 @@ class EShoppingApp:
         
         if success:
             self.current_user_id = user_id
+            clear_console()
             self._show_customer_menu()
     
     def _register_seller(self):
@@ -91,6 +111,7 @@ class EShoppingApp:
         
         if success:
             self.current_user_id = user_id
+            clear_console()
             self._show_seller_menu()
     
     def _login(self):
@@ -104,6 +125,7 @@ class EShoppingApp:
         
         if success:
             self.current_user_id = user_id
+            clear_console()
             
             if self.auth_service.is_customer(user_id):
                 self._show_customer_menu()
@@ -123,6 +145,8 @@ class EShoppingApp:
             print("5. Logout")
             
             choice = input("\nEnter your choice (1-5): ")
+            
+            clear_console()
             
             if choice == "1":
                 self._browse_products(allow_add_to_cart=True)
@@ -152,6 +176,8 @@ class EShoppingApp:
             print("5. Logout")
             
             choice = input("\nEnter your choice (1-5): ")
+            
+            clear_console()
             
             if choice == "1":
                 self._add_product(seller)
@@ -192,6 +218,7 @@ class EShoppingApp:
                 choice = input("\nEnter product number to add to cart (or 0 to go back): ")
                 
                 if choice == "0":
+                    clear_console()
                     break
                 
                 try:
@@ -199,6 +226,7 @@ class EShoppingApp:
                     if 1 <= choice <= len(products):
                         customer = self.auth_service.get_user(self.current_user_id)
                         customer.add_to_cart(products[choice - 1])
+                        print(f"\n{products[choice - 1].name} added to cart!")
                     else:
                         print("Invalid product number.")
                 except ValueError:
@@ -219,7 +247,7 @@ class EShoppingApp:
         
         total = 0
         for i, product in enumerate(customer.cart, 1):
-            print(f"{i}. {product}")
+            print(f"{i}. {product.name} - ${product.price:.2f}")
             total += product.price
         
         print(f"\nTotal: ${total:.2f}")
@@ -238,13 +266,17 @@ class EShoppingApp:
                     if 1 <= item_num <= len(customer.cart):
                         product = customer.cart[item_num - 1]
                         customer.remove_from_cart(product.product_id)
+                        print(f"\n{product.name} removed from cart.")
                     else:
                         print("Invalid item number.")
                 except ValueError:
                     print("Please enter a number.")
             elif choice == "2":
                 customer.clear_cart()
+                print("\nCart cleared.")
+                break
             elif choice == "3":
+                clear_console()
                 break
             else:
                 print("Invalid choice. Please try again.")
@@ -317,6 +349,7 @@ class EShoppingApp:
             choice = input("\nEnter order number to view details (or 0 to go back): ")
             
             if choice == "0":
+                clear_console()
                 break
             
             try:
@@ -338,7 +371,7 @@ class EShoppingApp:
         print("\n===== Add New Product =====")
         
         name = input("Enter product name: ")
-        description = input("Enter product description: ")
+        description = input("Enter product description (can not be empty): ")
         
         try:
             price = float(input("Enter product price: $"))
@@ -376,6 +409,9 @@ class EShoppingApp:
         
         for i, product in enumerate(seller.products, 1):
             print(f"{i}. {product}")
+            
+        input("\nPress Enter to continue...")
+        clear_console()
     
     def _update_product(self, seller):
         """
@@ -396,6 +432,7 @@ class EShoppingApp:
         choice = input("\nEnter product number to update (or 0 to go back): ")
         
         if choice == "0":
+            clear_console()
             return
         
         try:
@@ -461,6 +498,7 @@ class EShoppingApp:
         choice = input("\nEnter product number to remove (or 0 to go back): ")
         
         if choice == "0":
+            clear_console()
             return
         
         try:
