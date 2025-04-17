@@ -1,0 +1,43 @@
+{
+    "users": [
+        {
+            "username": "Shariful Islam",
+            "password": "as",
+            "balance": 2500.0,
+            "account_number": "ACCT-25825",
+            "transactions": [
+                "[2025-04-17 17:02:17] Account Created (Balance: $0.00)",
+                "[2025-04-17 17:02:17] Deposit: +$500.00 (Balance: $500.00)",
+                "[2025-04-17 17:03:18] Deposit: +$2000.00 (Balance: $2500.00)",
+                "[2025-04-17 17:04:27] Loan Approved: +$5000.00 (Balance: $7500.00)",
+                "[2025-04-17 17:11:43] Transfer to Safira Husna: -$5000.00 (Balance: $2500.00)"
+            ],
+            "loan_amount": 5000.0,
+            "creation_date": "2025-04-17 17:02:17",
+            "last_login": "2025-04-17 17:11:06"
+        },
+        {
+            "username": "Safira Husna",
+            "password": "asdf",
+            "balance": 5000.0,
+            "account_number": "ACCT-56236",
+            "transactions": [
+                "[2025-04-17 17:10:50] Account Created (Balance: $0.00)",
+                "[2025-04-17 17:11:43] Transfer from Shariful Islam: +$5000.00 (Balance: $5000.00)"
+            ],
+            "loan_amount": 0.0,
+            "creation_date": "2025-04-17 17:10:50",
+            "last_login": null
+        }
+    ],
+    "admins": [
+        {
+            "username": "admin",
+            "password": "admin123",
+            "last_login": "2025-04-17 17:05:06"
+        }
+    ],
+    "total_loan": 5000.0,
+    "loan_enabled": true,
+    "last_update": "2025-04-17 17:12:02"
+}
